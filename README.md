@@ -1,0 +1,1 @@
+Notes from DataCamp course [Nonlinear Modelling with GAMs](https://www.datacamp.com/courses/nonlinear-modeling-in-r-with-gams).
