@@ -59,13 +59,7 @@ plot(mod_city4, pages = 1, seWithMean = TRUE, shift = coef(mod_city4)[1])
 # ------------------------------------------------------------------------------
 # use gam.check() to diagnose problems with models
 # set up the data used on DataCamp
-d <- read_csv(
-    "./data/dat.csv", 
-    col_names = c("y", "x0", "x1", "x2", "x3", "f", "f0", "f1", "f2", "f3") 
-    
-) 
-
-names(d) <- c("y", "x0", "x1", "x2", "x3", "f", "f0", "f1", "f2", "f3")
+d <- read_csv("./data/dat.csv") 
 
 mod <- gam(y ~ s(x0, k = 3) + s(x1, k = 3) + s(x2, k = 3) + s(x3, k = 3),
            data = d, method = "REML")
@@ -93,10 +87,7 @@ concurvity(mod, full = FALSE)
 # can add interactions by putting multiple variables inside s()
 # examples in the course use meuse data, recreated locally as no longer 
 # available in sp package
-meuse <- read_csv("./data/meuse.csv", 
-                  col_names = c("x", "y", "cadmium", "copper", "lead",
-                                "zinc", "elev", "dist", "om", "ffreq", 
-                                "soil", "lime", "landuse", "dist.m")) %>% 
+meuse <- read_csv("./data/meuse.csv") %>% 
     mutate(ffreq = factor(ffreq)) %>% 
     mutate(soil = factor(soil)) %>% 
     mutate(lime = factor(lime)) %>% 
